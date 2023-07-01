@@ -42,7 +42,7 @@ void SearchInfo(char *table,char *field_name,char *index_str) {
 	int ret = 0;
 	ret = mysql_real_query(&mysql, query_str, strlen(query_str));
 	if (ret) {
-		printf("查询信息出错");
+		printf("查询信息出错：%s",mysql_error(&mysql));
 		return;
 	}
 	res = mysql_store_result(&mysql);

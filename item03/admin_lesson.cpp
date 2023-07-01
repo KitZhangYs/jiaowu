@@ -189,7 +189,7 @@ void SearchTeaching() {
 	case 2:
 		printf("请输入教师id：");
 		scanf_s("%s", str, 200);
-		sprintf(query_str, "where teacher_id = %s", str);
+		sprintf(query_str, "where teacher_id = '%s'", str);
 		printf("\n授课编号         教师id            课程id\n");
 		SearchInfo(table, key, query_str);
 		return;
@@ -410,7 +410,7 @@ void SearchLearning() {
 	case 2:
 		printf("请输入学生id：");
 		scanf_s("%s", str, 200);
-		sprintf(query_str, "where student_id = %s", str);
+		sprintf(query_str, "where student_id = '%s'", str);
 		printf("\n选课编号         学号            课程id            分数\n");
 		SearchInfo(table, key, query_str);
 		return;
@@ -449,7 +449,7 @@ void CreateLearning() {
 	printf("请输入学生id：");
 	scanf_s("%s", student, 200);
 	//在students表中查询是否存在该编号
-	sprintf(query_str, "select * from students where studet_id = '%s'", student);
+	sprintf(query_str, "select * from students where student_id = '%s'", student);
 	ret = mysql_real_query(&mysql, query_str, strlen(query_str));
 	if (ret) {
 		printf("查询信息出错\n");
@@ -513,7 +513,7 @@ void UpdateLearning() {
 	scanf_s("%d", &learning);
 
 	//查询是否被选修
-	sprintf(query_str, "select * from teacher_lessons where id = %d", learning);
+	sprintf(query_str, "select * from student_lesson where id = %d", learning);
 	int ret = 0;
 	ret = mysql_real_query(&mysql, query_str, strlen(query_str));
 	if (ret) {
@@ -582,7 +582,7 @@ void UpdateLearning() {
 	scanf_s("%s", score, 200);
 
 	if (strcmp(score, "n")) {
-		sprintf(query_str, "update student_lesson set teacher_id = '%s' where score = %d", score, learning);
+		sprintf(query_str, "update student_lesson set score = %s where id = %d", score, learning);
 		ret = mysql_real_query(&mysql, query_str, strlen(query_str));
 		if (ret) {
 			printf("%s\n", mysql_error(&mysql));
