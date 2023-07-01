@@ -175,10 +175,20 @@ void CommandLesson() {
 		scanf_s("%d", &n);
 		switch (n) {
 		case 1:
+			PrintAllLessons();
+			break;
 		case 2:
+			SearchLesson();
+			break;
 		case 3:
+			CreateLesson();
+			break;
 		case 4:
+			DeleteLesson();
+			break;
 		case 5:
+			UpdateLesson();
+			break;
 		case 6:
 			return;
 		default:

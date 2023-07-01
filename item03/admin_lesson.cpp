@@ -1,7 +1,7 @@
 #include "admin.h"
 
 //展示所有课程列表
-void PrintAllTeachers() {
+void PrintAllLessons() {
 	strcpy(table, "lessons");
 	strcpy(key, "*");
 	strcpy(index_str, "");
@@ -11,7 +11,7 @@ void PrintAllTeachers() {
 }
 
 //查找指定课程
-void SearchTeacher() {
+void SearchLesson() {
 	char uid[100];
 	printf("\n请输入需要查找的课程号：");
 	scanf_s("%s", uid, 100);
@@ -24,7 +24,7 @@ void SearchTeacher() {
 }
 
 //创建新课程
-void CreateTeacher() {
+void CreateLesson() {
 	char name[200] = { 0 }, contact[200] = {0};
 	int learn_time = 0,semester = 0, n = 0;
 	printf("请输入新课程的名称：");
@@ -47,7 +47,7 @@ void CreateTeacher() {
 }
 
 //删除课程
-void DeleteTeacher() {
+void DeleteLesson() {
 	printf("\n请输入要删除的课程号：");
 	char uid[200] = { 0 }, query_str[500] = { 0 };
 	int ret = 0;
@@ -86,13 +86,13 @@ void DeleteTeacher() {
 }
 
 //修改课程信息
-void UpdateTeacher() {
+void UpdateLesson() {
 	printf("\n请输入要修改的课程号：");
 	char uid[200] = { 0 }, query_str[500] = { 0 };
 	scanf_s("%s", uid, 200);
-	sprintf(query_str, "select * from teachers where teacher_id = '%s'", uid);
+	sprintf(query_str, "select * from lessons where lesson_id = '%s'", uid);
 
-	//在teachers表中查询用户信息存入row中
+	//在lessons表中查询用户信息存入row中
 	int ret = 0;
 	ret = mysql_real_query(&mysql, query_str, strlen(query_str));
 	if (ret) {
@@ -108,11 +108,11 @@ void UpdateTeacher() {
 	MYSQL_ROW row;
 	row = mysql_fetch_row(res);
 
-	printf("姓名(%s,放弃修改该项请输入n)：", row[1]);
+	printf("课程名称(%s,放弃修改该项请输入n)：", row[1]);
 	char name[200] = { 0 };
 	scanf_s("%s", name, 200);
 	if (strcmp(name, "n")) {
-		sprintf(query_str, "update teachers set name = '%s' where teacher_id = '%s'", name, uid);
+		sprintf(query_str, "update lessons set name = '%s' where lesson_id = '%s'", name, uid);
 		ret = mysql_real_query(&mysql, query_str, strlen(query_str));
 		if (ret) {
 			printf("%s\n", mysql_error(&mysql));
@@ -120,11 +120,11 @@ void UpdateTeacher() {
 		}
 	}
 
-	printf("性别(%s,放弃修改该项请输入n)：", row[2]);
-	char sex[200] = { 0 };
-	scanf_s("%s", sex, 200);
-	if (strcmp(sex, "n")) {
-		sprintf(query_str, "update teachers set sex = '%s' where teacher_id = '%s'", sex, uid);
+	printf("课程性质(%s,放弃修改该项请输入n)：", row[2]);
+	char contact[200] = { 0 };
+	scanf_s("%s", contact, 200);
+	if (strcmp(contact, "n")) {
+		sprintf(query_str, "update lessons set contact = '%s' where lesson_id = '%s'", contact, uid);
 		ret = mysql_real_query(&mysql, query_str, strlen(query_str));
 		if (ret) {
 			printf("%s\n", mysql_error(&mysql));
@@ -132,11 +132,11 @@ void UpdateTeacher() {
 		}
 	}
 
-	printf("学历(%s,放弃修改该项请输入n)：", row[3]);
-	char xw[200] = { 0 };
-	scanf_s("%s", xw, 200);
-	if (strcmp(xw, "n")) {
-		sprintf(query_str, "update teachers set degree = '%s' where teacher_id = '%s'", xw, uid);
+	printf("学时(%s,放弃修改该项请输入n)：", row[3]);
+	char learn_time[200] = { 0 };
+	scanf_s("%s", learn_time, 200);
+	if (strcmp(learn_time, "n")) {
+		sprintf(query_str, "update lessons set learn_time = %s where lesson_id = '%s'", learn_time, uid);
 		ret = mysql_real_query(&mysql, query_str, strlen(query_str));
 		if (ret) {
 			printf("%s\n", mysql_error(&mysql));
@@ -144,11 +144,11 @@ void UpdateTeacher() {
 		}
 	}
 
-	printf("职称(%s,放弃修改该项请输入n)：", row[4]);
-	char zc[200] = { 0 };
-	scanf_s("%s", zc, 200);
-	if (strcmp(zc, "n")) {
-		sprintf(query_str, "update teachers set zhich = '%s' where teacher_id = '%s'", zc, uid);
+	printf("开课学期(%s,放弃修改该项请输入n)：", row[4]);
+	char semester[200] = { 0 };
+	scanf_s("%s", semester, 200);
+	if (strcmp(semester, "n")) {
+		sprintf(query_str, "update lessons set semester = %s where lesson_id = '%s'", semester, uid);
 		ret = mysql_real_query(&mysql, query_str, strlen(query_str));
 		if (ret) {
 			printf("%s\n", mysql_error(&mysql));

@@ -32,3 +32,10 @@ extern void SearchTeacher(void);//查找指定教师（通过教师号）
 extern void CreateTeacher(void);//创建新教师
 extern void DeleteTeacher(void);//删除教师
 extern void UpdateTeacher(void);//修改教师信息
+
+//管理课程函数
+extern void PrintAllLessons(void);//展示所有课程信息
+extern void SearchLesson(void);//查找指定课程（通过课程号）
+extern void CreateLesson(void);//创建新课程
+extern void DeleteLesson(void);//删除课程
+extern void UpdateLesson(void);//修改课程信息
