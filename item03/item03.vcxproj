@@ -143,6 +143,8 @@
     <ClInclude Include="admin.h" />
     <ClInclude Include="login.h" />
     <ClInclude Include="my_sql.h" />
+    <ClInclude Include="student.h" />
+    <ClInclude Include="teacher.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

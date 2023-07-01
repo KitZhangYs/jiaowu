@@ -7,13 +7,11 @@ int Login() {
 	printf("\n_____________________________________________________\n");
 	printf("|                    请您进行登录                   |\n");
 	printf("|___________________________________________________|\n");
-	//printf("                   请输入您的用户名：");
-	//scanf_s("%s", username, 300);
-	//printf("                   请输入您的密码：");
+	printf("                   请输入您的用户名：");
+	scanf_s("%s", username, 300);
+	printf("                   请输入您的密码：");
 	char pwd[255];
-	//scanf_s("%s",pwd,255);
-	strcpy(username, "jw0001");
-	strcpy(pwd, "admin001");
+	scanf_s("%s",pwd,255);
 	char query_str[500] = {0};
 	sprintf(query_str, "select * from users where user_id = \"%s\" and password = \"%s\"", username, pwd);
 	int ret=0;

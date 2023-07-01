@@ -39,3 +39,17 @@ extern void SearchLesson(void);//查找指定课程（通过课程号）
 extern void CreateLesson(void);//创建新课程
 extern void DeleteLesson(void);//删除课程
 extern void UpdateLesson(void);//修改课程信息
+
+//管理授课函数
+extern void PrintAllTeaching(void);//展示所有授课信息
+extern void SearchTeaching(void);//查找指定课程（通过授课编号，教师id或课程id）
+extern void CreateTeaching(void);//创建新授课
+extern void DeleteTeaching(void);//删除授课
+extern void UpdateTeaching(void);//修改授课信息
+
+//管理选课函数
+extern void PrintAllLearning(void);//展示所有选课信息
+extern void SearchLearning(void);//查找指定课程（通过选课编号，学生id或课程id）
+extern void CreateLearning(void);//创建新选课
+extern void DeleteLearning(void);//删除选课
+extern void UpdateLearning(void);//修改选课信息

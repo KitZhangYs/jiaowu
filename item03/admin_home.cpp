@@ -214,10 +214,20 @@ void CommandTeacherANDLesson() {
 		scanf_s("%d", &n);
 		switch (n) {
 		case 1:
+			PrintAllTeaching();
+			break;
 		case 2:
+			SearchTeaching();
+			break;
 		case 3:
+			CreateTeaching();
+			break;
 		case 4:
+			DeleteTeaching();
+			break;
 		case 5:
+			UpdateTeaching();
+			break;
 		case 6:
 			return;
 		default:
@@ -235,17 +245,29 @@ void CommandStudentANDLesson() {
 		printf("|________2.选课查询________|\n");
 		printf("|________3.系统选课________|\n");
 		printf("|________4.系统退课________|\n");
-		printf("|________5.返回主页________|\n");
+		printf("|________5.修改信息________|\n");
+		printf("|________6.返回主页________|\n");
 		printf("|__________________________|\n");
 		printf("请您选择");
 		int n = 0;
 		scanf_s("%d", &n);
 		switch (n) {
 		case 1:
+			PrintAllLearning();
+			break;
 		case 2:
+			SearchLearning();
+			break;
 		case 3:
+			CreateLearning();
+			break;
 		case 4:
+			DeleteLearning();
+			break;
 		case 5:
+			UpdateLearning();
+			break;
+		case 6:
 			return;
 		default:
 			printf("输入错误！\n");
